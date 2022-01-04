@@ -3,6 +3,7 @@
 #   number in a fibonacci series
 #   2. an implementation that also utilizes memoization to reduce the
 #   number of function calls
+#   3. an iterative implementation
 
 import time
 
@@ -19,6 +20,16 @@ def fibonacci_memoized(n):
   memo[n] = current
   return current
 
+def fibonacci_iterative(n):
+  prev = 0
+  curr = 1
+  for i in range(1, n):
+    next = prev + curr
+    prev = curr
+    curr = next
+  return curr
+
+
 # Comparison Tests
 print("\nComparison Tests\n================")
 for n in (5, 10, 20, 30):
@@ -32,7 +43,12 @@ for n in (5, 10, 20, 30):
   start = time.perf_counter_ns()
   output = fibonacci_memoized(n)
   runtime = time.perf_counter_ns() - start
-  print(f"fibonacci_memoized  output={output}  runtime(ns)={runtime}")
+  print(f"fibonacci_memoized   output={output}  runtime(ns)={runtime}")
+
+  start = time.perf_counter_ns()
+  output = fibonacci_iterative(n)
+  runtime = time.perf_counter_ns() - start
+  print(f"fibonacci_iterative  output={output}  runtime(ns)={runtime}")
   print()
 
 # Observations
@@ -43,3 +59,6 @@ for n in (5, 10, 20, 30):
 # fibonacci_memoized
 #   runtime complexity --> O(n)
 #   space complexity ----> O(n)
+# fibonacci_iterative
+#   runtime complexity --> O(n)
+#   space complexity ----> O(1)
