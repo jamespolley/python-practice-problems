@@ -32,7 +32,7 @@ def fibonacci_iterative(n):
 
 # Comparison Tests
 print("\nComparison Tests\n================")
-for n in (5, 10, 20, 30):
+for n in (1, 5, 10, 20, 30):
   print(f"n={n}")
   start = time.perf_counter_ns()
   output = fibonacci_recursive(n)
@@ -53,12 +53,24 @@ for n in (5, 10, 20, 30):
 
 # Observations
 # ============
-# fibonacci_recursive
-#   runtime complexity --> O(ϕ^2), ϕ is about 1.618 (golden ratio)
-#   space complexity ----> O(n)
-# fibonacci_memoized
-#   runtime complexity --> O(n)
-#   space complexity ----> O(n)
+# fibonacci_recursive()
+#   Runtime complexity --> O(ϕ^2), ϕ is about 1.618 (golden ratio)
+#   Space complexity ----> O(n)
+#   Conclusion: Requires the least amount of code and is the easiest to
+#     read/understand, but runtime becomes increasingly slower as n
+#     increases, because function calls with identical inputs are being
+#     repeated.
+# 
+# fibonacci_memoized()
+#   Runtime complexity --> O(n)
+#   Space complexity ----> O(n)
+#   Conclusion: Requires more memory than fibonacci_recursive(), but
+#     runtime improves dramatically as n increases, because memoization
+#     is used to save results, and therefore execution of function
+#     calls with identical inputs is avoided.
+# 
 # fibonacci_iterative
-#   runtime complexity --> O(n)
-#   space complexity ----> O(1)
+#   Runtime complexity --> O(n)
+#   Space complexity ----> O(1)
+#   Conclusion: Requires the least memory and has the fastest runtime
+#     by far (except for when n is very small).
