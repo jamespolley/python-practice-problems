@@ -19,8 +19,13 @@ def arith_seq_find_vars(arith_seq):
   - index of the final term (n), 1st term being 1
   ---
   Raises an exception if arithmetic sequence is invalid."""
+  a1 = arith_seq[0]
   d = arith_seq[1] - arith_seq[0]
-  # IN PROGRESS
+  n = len(arith_seq)
+  if generate_arith_seq(a1, d, n) != arith_seq:
+    raise Exception("Arithmetic sequence is not valid.")
+  an = arith_seq_solve_unknown(None, a1, d, n)
+  return an, a1, d, n
 
 def arith_seq_solve_unknown(an=None, a1=None, d=None, n=None):
   """Given that the other variables are known, solves for:
@@ -32,7 +37,7 @@ def arith_seq_solve_unknown(an=None, a1=None, d=None, n=None):
   Raises an exception if too few known variables are given."""
   known_vars = sum([True for arg in (an, a1, d, n) if arg is not None])
   if known_vars < 3:
-    raise Exception("Three known variables are required")  
+    raise Exception("Three known variables are required.")  
   if an is None: # Solve for an
     return a1 + (d * (n - 1))
   if a1 is None: # Solve for a1
@@ -55,6 +60,20 @@ if __name__ == "__main__":
   print(f"Variables: a1={a1}, d={d}, n={n}")
   print("  Result:", generate_arith_seq(a1, d, n), "\n")
 
+  print("arith_seq_find_vars")
+  print("===================")
+  arith_seq = [1, 3, 5, 7, 9]
+  print("Given the finite arithmetic sequence: {1, 3, 5, 7, 9}")
+  an, a1, d, n = arith_seq_find_vars(arith_seq)
+  print(f"  Result: an={an}, a1={a1}, d={d}, n={n}")
+  arith_seq = [1, 4, 7, 11]
+  print("Given the INVALID finite arithmetic sequence: {1, 4, 7, 11}")
+  print("  Result: ", end="")
+  try:
+    an, a1, d, n = arith_seq_find_vars(arith_seq)
+    print("VALID arithmetic sequence\n")
+  except:
+    print("INVALID arithmetic sequence\n")
 
   print("arith_seq_solve_unknown")
   print("=======================")
