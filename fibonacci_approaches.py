@@ -31,25 +31,26 @@ def fibonacci_iterative(n):
 
 
 # Comparison Tests
-print("\nComparison Tests\n================")
-for n in (1, 5, 10, 20, 30):
-  print(f"n={n}")
-  start = time.perf_counter_ns()
-  output = fibonacci_recursive(n)
-  runtime = time.perf_counter_ns() - start
-  print(f"fibonacci_recursive  output={output}  runtime(ns)={runtime}")
+if __name__ == "__main__":
+  print("\nCOMPARISON TESTS\n================")
+  for n in (1, 5, 10, 20, 30):
+    print(f"n={n}")
+    start = time.perf_counter_ns()
+    output = fibonacci_recursive(n)
+    runtime = time.perf_counter_ns() - start
+    print(f"fibonacci_recursive  output={output}  runtime(ns)={runtime}")
 
-  memo = {}
-  start = time.perf_counter_ns()
-  output = fibonacci_memoized(n)
-  runtime = time.perf_counter_ns() - start
-  print(f"fibonacci_memoized   output={output}  runtime(ns)={runtime}")
+    memo = {}
+    start = time.perf_counter_ns()
+    output = fibonacci_memoized(n)
+    runtime = time.perf_counter_ns() - start
+    print(f"fibonacci_memoized   output={output}  runtime(ns)={runtime}")
 
-  start = time.perf_counter_ns()
-  output = fibonacci_iterative(n)
-  runtime = time.perf_counter_ns() - start
-  print(f"fibonacci_iterative  output={output}  runtime(ns)={runtime}")
-  print()
+    start = time.perf_counter_ns()
+    output = fibonacci_iterative(n)
+    runtime = time.perf_counter_ns() - start
+    print(f"fibonacci_iterative  output={output}  runtime(ns)={runtime}")
+    print()
 
 # Observations
 # ============
