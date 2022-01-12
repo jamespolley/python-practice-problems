@@ -41,7 +41,7 @@ def arith_seq_solve_unknown(an=None, a1=None, d=None, n=None):
   if an is None: # Solve for an
     return a1 + (d * (n - 1))
   if a1 is None: # Solve for a1
-    return an // (d * (n - 1))
+    return an - (d * (n - 1))
   if d is None: # Solve for d
     return (an - a1) // (n - 1)
   if n is None: # Solve for n
