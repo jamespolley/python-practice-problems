@@ -1,9 +1,11 @@
-# Comparison of:
-#   1. a recursive implementation of a function to calculate the nth
-#   number in a fibonacci series
-#   2. an implementation that also utilizes memoization to reduce the
-#   number of function calls
-#   3. an iterative implementation
+"""
+Comparison of:
+  1. a recursive implementation of a function to calculate the nth
+  number in a fibonacci series
+  2. an implementation that also utilizes memoization to reduce the
+  number of function calls
+  3. an iterative implementation
+"""
 
 import time
 
