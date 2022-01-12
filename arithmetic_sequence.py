@@ -1,3 +1,12 @@
+"""
+Small library for generating and/or working with arithmetic sequences.
+
+Arithmetic sequence -> a sequence of numbers such that the difference between the consecutive terms is constant.
+
+E.g. {3, 8, 13, 18, 23, ...} is an arithmetic sequence with a common difference of 5.
+For more info: https://en.wikipedia.org/wiki/Arithmetic_progression
+"""
+
 
 def generate_arith_seq(a1, d, n):
   """Generates a list containing a finite arithmetic sequence, given:
@@ -9,7 +18,6 @@ def generate_arith_seq(a1, d, n):
   if n < 1:
     raise Exception("n must be 1 or greater.")
   return [a1 + d*n for n in range(n)]
-print(generate_arith_seq(1, -2, 5))
 
 def arith_seq_find_vars(arith_seq):
   """Given a list containing a finite arithmetic sequence, finds the variables:
@@ -81,7 +89,7 @@ if __name__ == "__main__":
   a1 = 3
   d = 3
   n = 5
-  print("Given the arithmetic sequence: {3, 6, 9, 12, 15...}")
+  print("Given the arithmetic sequence: {3, 6, 9, 12, 15, ...}")
   print(f"Variables: an={an}, a1={a1}, d={d}, n={n}")
   result = arith_seq_solve_unknown(a1=a1, d=d, n=n)
   print(f"  When an is unknown, result: an={result}")
